@@ -13,3 +13,19 @@ export const signUpUser = async (data) => {
     return res.json();
     console.log(data);
 }
+
+
+export const loginUser = async (data) => {
+    try {
+        const res = await fetch(`${BASE_URL}/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        return res.json();
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+}

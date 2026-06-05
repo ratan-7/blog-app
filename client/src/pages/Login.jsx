@@ -1,13 +1,18 @@
 import React from 'react'
 import { useState } from 'react'
+import { loginUser } from '../services/api';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState("");
 
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
         console.log("email:", email, "password:", password);
+        const response = await loginUser(data);
+        if (response) {
+            localStorage.setItem(response.token);
+        }
     }
     return (
         <div>
