@@ -1,17 +1,25 @@
 import React from 'react'
 import { useState } from 'react'
-import { loginUser } from '../services/api';
+import { loginUser } from '../services/api'
+import { useNavigate } from 'react-router-dom'
+
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState("");
-
+    const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        console.log("email:", email, "password:", password);
-        const response = await loginUser(data);
-        if (response) {
-            localStorage.setItem(response.token);
+        const res = await loginUser({ email, password });
+        console.log(res);
+        if (res.accessToken) {
+            localStorage.setItem("token", res.accessToken);
+            //localStorage.setItem("role", res.user.role);
+            localStorage.setItem("user", JSON.stringify(res.user));
+            navigate("/dashboard")
+
+        } else {
+            alert(res.msg || "Login failed")
         }
     }
     return (
