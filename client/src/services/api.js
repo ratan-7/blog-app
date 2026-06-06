@@ -29,3 +29,15 @@ export const loginUser = async (data) => {
         res.status(500).json({ message: err.message })
     }
 }
+
+export const getAllPost = async (data) => {
+    try {
+        const res = await fetch(`${BASE_URL}/posts`, {
+
+
+        })
+        return res.json();
+    } catch (err) {
+        res.status(500).json({ "message": err.message })
+    }
+}

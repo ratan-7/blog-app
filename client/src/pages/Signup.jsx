@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { signUpUser } from '../services/api';
+
 const Signup = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -9,14 +10,12 @@ const Signup = () => {
     const handleSignup = async (e) => {
         e.preventDefault();
 
-        const userData = {
-            name,
-            email,
-            password
-        };
-
         try {
-            const response = await signUpUser(userData);
+            const response = await signUpUser({
+                name,
+                email,
+                password
+            });
             console.log(response);
         } catch (err) {
             console.error(err);
