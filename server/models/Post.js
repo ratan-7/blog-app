@@ -12,6 +12,9 @@ const PostSchema = new Schema({
         type: String,
         required: true
     },
+    file: {
+        type: String
+    },
     like: {
         performedBy: String,
     },

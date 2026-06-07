@@ -12,7 +12,7 @@ const CreatePost = () => {
             const response = await createPost({
                 title,
                 description,
-
+                file
             })
             console.log(response)
         } catch (err) {
