@@ -1,13 +1,29 @@
 import React, { useState } from 'react'
+import { createPost } from "../services/api.js"
 
 const CreatePost = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [file, setFile] = useState('');
+
+    const handleCreatePost = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await createPost({
+                title,
+                description,
+
+            })
+            console.log(response)
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     return (
         <div>
             <h2>create vlog</h2>
-            <form>
+            <form onSubmit={handleCreatePost}>
                 <input
                     type='text'
                     placeholder='enter title'
@@ -27,6 +43,8 @@ const CreatePost = () => {
                     value={file}
                     onChange={(e) => setFile(e.target.value)}
                 />
+
+                <button type='submit'>submit</button>
             </form>
         </div>
     )
