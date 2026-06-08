@@ -1,4 +1,5 @@
 const BASE_URL = "http://localhost:3000/api"
+import axios from "axios";
 
 export const signUpUser = async (data) => {
     const res = await fetch(`${BASE_URL}/signup`,
@@ -30,17 +31,11 @@ export const loginUser = async (data) => {
     }
 }
 
-export const getAllPost = async (data) => {
-    try {
-        const res = await fetch(`${BASE_URL}/posts`, {
 
 
-        })
-        return res.json();
-    } catch (err) {
-        res.status(500).json({ "message": err.message })
-    }
-}
+export const getAllPosts = () => {
+    return axios.get("http://localhost:5000/api/posts");
+};
 
 export const createPost = async (data) => {
     try {
