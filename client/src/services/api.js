@@ -34,7 +34,7 @@ export const loginUser = async (data) => {
 
 
 export const getAllPosts = () => {
-    return axios.get("http://localhost:5000/api/posts");
+    return axios.get("http://localhost:3000/api/posts");
 };
 
 export const createPost = async (data) => {
