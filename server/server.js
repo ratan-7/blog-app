@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors({
     origin: [
         "http://localhost:5173",
-        "https://blog-app-rust-omega-25.vercel.app"
+        "https://blog-app-three-pied.vercel.app"
     ],
     credentials: true
 }));
