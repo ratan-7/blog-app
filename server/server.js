@@ -10,7 +10,12 @@ const port = 3000;
 connectDB();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin: "https://blog-app-rust-omega-25.vercel.app",
+        credentials: true
+    }
+));
 
 app.use(express.urlencoded({
     extended: true
