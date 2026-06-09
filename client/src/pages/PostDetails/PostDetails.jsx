@@ -34,7 +34,7 @@ const PostDetails = () => {
         <div className="post-details-page">
             <div className="post-details-container">
                 <img
-                    src={`${API_URL}/uploads/${post.file}`}
+                    src={`${API_URL}/api/uploads/${post.file}`}
                     alt={post.title}
                     className="post-details-image"
                 />

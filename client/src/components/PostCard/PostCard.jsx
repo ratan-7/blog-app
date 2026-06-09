@@ -7,7 +7,7 @@ const PostCard = ({ post }) => {
         <div className="post-card">
             {post.file && (
                 <img
-                    src={`${API_URL}/uploads/${post.file}`}
+                    src={`${API_URL}/api/uploads/${post.file}`}
                     alt={post.title}
                     className="post-image"
                 />

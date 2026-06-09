@@ -3,7 +3,7 @@ import { API_URL } from "../config";
 import axios from "axios";
 
 export const signUpUser = async (data) => {
-    const res = await fetch(`${API_URL}/signup`,
+    const res = await fetch(`${API_URL}/api/signup`,
         {
             method: "POST",
             headers: {
@@ -19,7 +19,7 @@ export const signUpUser = async (data) => {
 
 export const loginUser = async (data) => {
     try {
-        const res = await fetch(`${API_URL}/login`, {
+        const res = await fetch(`${API_URL}/api/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -35,11 +35,11 @@ export const loginUser = async (data) => {
 
 
 export const getAllPosts = () => {
-    return axios.get(`${API_URL}/posts`);
+    return axios.get(`${API_URL}/api/posts`);
 };
 
 export const createPost = async (formData) => {
-    const res = await fetch(`${API_URL}/posts`, {
+    const res = await fetch(`${API_URL}/api/posts`, {
         method: "POST",
         body: formData
     });
@@ -49,6 +49,6 @@ export const createPost = async (formData) => {
 
 export const getPostById = (id) => {
     return axios.get(
-        `${API_URL}/posts/${id}`
+        `${API_URL}/api/posts/${id}`
     );
 };
