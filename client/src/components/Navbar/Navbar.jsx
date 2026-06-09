@@ -1,29 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Navbar.css"
+import { FiMenu, FiX } from "react-icons/fi";
+import "./Navbar.css";
 
 const Navbar = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        window.location.href = "/";
+    };
+
     return (
         <nav className="navbar">
             <div className="logo">
-                <h2>VlogHub</h2>
+                <h2>Vlogify</h2>
             </div>
 
-            <ul className="nav-links">
+            <button
+                className="menu-btn"
+                onClick={() => setMenuOpen(!menuOpen)}
+            >
+                {menuOpen ? <FiX /> : <FiMenu />}
+            </button>
+
+            <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
                 <li>
-                    <Link to="/">Home</Link>
+                    <Link
+                        to="/dashboard"
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        Home
+                    </Link>
                 </li>
 
                 <li>
-                    <Link to="/post">Create Vlog</Link>
+                    <Link
+                        to="/post"
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        Create Vlog
+                    </Link>
                 </li>
 
                 <li>
-                    <Link to="/profile">Profile</Link>
-                </li>
-
-                <li>
-                    <button className="logout-btn">
+                    <button
+                        onClick={handleLogout}
+                        className="logout-btn"
+                    >
                         Logout
                     </button>
                 </li>

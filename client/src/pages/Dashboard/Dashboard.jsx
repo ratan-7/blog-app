@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import Navbar from '../../components/Navbar/Navbar';
-import PostCard from '../../components/PostCard/PostCard';
+import React, { useEffect, useState } from "react";
+import Navbar from "../../components/Navbar/Navbar";
+import PostCard from "../../components/PostCard/PostCard";
 import "./Dashboard.css";
 import { getAllPosts } from "../../services/api";
 
@@ -13,7 +13,10 @@ const Dashboard = () => {
             const response = await getAllPosts();
             setPosts(response.data);
         } catch (error) {
-            console.log("Error fetching posts:", error);
+            console.log(
+                "Error fetching posts:",
+                error
+            );
         } finally {
             setLoading(false);
         }
@@ -24,23 +27,39 @@ const Dashboard = () => {
     }, []);
 
     return (
-        <div>
+        <div className="dashboard">
             <Navbar />
 
-            <div className="posts-container">
-                {loading ? (
-                    <h2>Loading...</h2>
-                ) : posts.length === 0 ? (
-                    <h2>No Posts Found</h2>
-                ) : (
-                    posts.map((post) => (
+            <div className="dashboard-header">
+                <h1>
+                    Welcome to <span>Vlogify</span>
+                </h1>
+
+                <p>
+                    Explore stories, adventures and
+                    creative content from creators around
+                    the world.
+                </p>
+            </div>
+
+            {loading ? (
+                <div className="dashboard-message">
+                    Loading Posts...
+                </div>
+            ) : posts.length === 0 ? (
+                <div className="dashboard-message">
+                    No Posts Found
+                </div>
+            ) : (
+                <div className="posts-container">
+                    {posts.map((post) => (
                         <PostCard
                             key={post._id}
                             post={post}
                         />
-                    ))
-                )}
-            </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

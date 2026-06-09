@@ -1,12 +1,13 @@
 import React from "react";
 import "./PostCard.css";
-
+import { Link } from "react-router-dom";
+import { API_URL } from "../../config";
 const PostCard = ({ post }) => {
     return (
         <div className="post-card">
-            {post.image && (
+            {post.file && (
                 <img
-                    src={post.image}
+                    src={`${API_URL}/uploads/${post.file}`}
                     alt={post.title}
                     className="post-image"
                 />
@@ -24,9 +25,11 @@ const PostCard = ({ post }) => {
                 <div className="post-footer">
                     <span>✍️ {post.author}</span>
 
-                    <button className="read-more-btn">
-                        Read More
-                    </button>
+                    <Link to={`/post/${post._id}`}>
+                        <button className="read-more-btn">
+                            Read More
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

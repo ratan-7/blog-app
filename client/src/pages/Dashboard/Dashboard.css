@@ -1,6 +1,83 @@
+body {
+    background:
+        radial-gradient(circle at top,
+            #1e293b,
+            #0f172a 60%);
+}
+
+.dashboard {
+    min-height: 100vh;
+    background: #0f172a;
+}
+
+.dashboard-header {
+    max-width: 1300px;
+    margin: 0 auto;
+
+    padding: 40px 20px 20px;
+}
+
+.dashboard-header h1 {
+    color: #f8fafc;
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.dashboard-header span {
+    color: #f97316;
+}
+
+.dashboard-header p {
+    color: #94a3b8;
+    font-size: 1rem;
+}
+
 .posts-container {
-    padding: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+
+    padding: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit,
+            minmax(340px, 1fr));
+
+    gap: 25px;
+}
+
+.dashboard-message {
+    min-height: 50vh;
+
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+    color: #f8fafc;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .dashboard-header h1 {
+        font-size: 2rem;
+    }
+
+    .posts-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-header {
+        padding: 25px 15px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .dashboard-header p {
+        font-size: 0.9rem;
+    }
 }
