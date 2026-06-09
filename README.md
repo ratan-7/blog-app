@@ -35,22 +35,7 @@ Vlogify is a full-stack vlog sharing platform where users can create, upload, an
 ## 📂 Project Structure
 
 ```bash
-BLOG-APPS/
-│
-├── client/
-│   ├── src/
-│   ├── public/
-│   └── package.json
-│
-├── server/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   ├── uploads/
-│   └── server.js
-│
-└── README.md
+
 ```
 
 ## ⚙️ Installation
