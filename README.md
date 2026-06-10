@@ -14,6 +14,13 @@ Vlogify is a full-stack vlog sharing platform where users can create, upload, an
 * Protected Routes
 * Modern Dark Theme UI
 
+## 🌐 Live Demo
+
+🚀 Frontend: [Vlogify Live]([https://your-frontend-url.vercel.app](https://blog-app-three-pied.vercel.app))
+
+⚙️ Backend API: [API Server]([https://your-backend-url.onrender.com](https://blog-app-g4gx.onrender.com))
+
+
 ## 🛠️ Tech Stack
 
 ### Frontend
@@ -61,6 +68,12 @@ Vlogify is a full-stack vlog sharing platform where users can create, upload, an
 * mongoose
 * express
 * nodemon
+
+## ☁️ Deployment
+
+- Vercel (Frontend)
+- Render (Backend)
+- MongoDB Atlas (Database)
 
 ## 📂 Project Structure
 
