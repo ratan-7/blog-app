@@ -16,11 +16,9 @@ Vlogify is a full-stack vlog sharing platform where users can create, upload, an
 
 ## 🌐 Live Demo
 
-🚀 Frontend: [Vlogify Live]([https://your-frontend-url.vercel.app](https://blog-app-three-pied.vercel.app))
+👉 **Frontend:** [Open Vlogify](https://blog-app-three-pied.vercel.app)
 
-⚙️ Backend API: [API Server]([https://your-backend-url.onrender.com](https://blog-app-g4gx.onrender.com))
-
-
+👉 **Backend API:** [Open API](https://blog-app-g4gx.onrender.com)
 ## 🛠️ Tech Stack
 
 ### Frontend
