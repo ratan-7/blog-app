@@ -20,17 +20,47 @@ Vlogify is a full-stack vlog sharing platform where users can create, upload, an
 
 * React.js
 * React Router DOM
-* CSS3
 * Axios
+* CSS3
 
 ### Backend
 
 * Node.js
 * Express.js
+
+### Database
+
 * MongoDB
 * Mongoose
+
+### Authentication
+
+* JSON Web Token (JWT)
+
+### File Upload
+
 * Multer
-* JWT Authentication
+
+## 🔧 Tools & Platforms
+
+* Git
+* GitHub
+* Visual Studio Code
+* MongoDB Atlas
+* Postman
+
+## 📦 NPM Packages
+
+* react-router-dom
+* axios
+* bcryptjs
+* jsonwebtoken
+* multer
+* cors
+* dotenv
+* mongoose
+* express
+* nodemon
 
 ## 📂 Project Structure
 
