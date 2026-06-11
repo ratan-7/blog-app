@@ -6,20 +6,31 @@ import "./Login.css";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
+
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        const res = await loginUser({ email, password });
+        try {
+            setLoading(true);
 
-        if (res.accessToken) {
-            localStorage.setItem("token", res.accessToken);
-            localStorage.setItem("user", JSON.stringify(res.user));
+            const res = await loginUser({ email, password });
 
-            navigate("/dashboard");
-        } else {
-            alert(res.msg || "Login failed");
+            if (res.accessToken) {
+                localStorage.setItem("token", res.accessToken);
+                localStorage.setItem("user", JSON.stringify(res.user));
+
+                navigate("/dashboard");
+            } else {
+                alert(res.msg || "Login failed");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Something went wrong. Please try again.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -55,10 +66,18 @@ const Login = () => {
                     <button
                         type="submit"
                         className="login-btn"
+                        disabled={loading}
                     >
-                        Login
+                        {loading ? "Signing In..." : "Login"}
                     </button>
                 </form>
+
+                {loading && (
+                    <div className="server-message">
+                        🚀 Server is waking up. The first login may
+                        take up to 30 seconds. Please wait...
+                    </div>
+                )}
 
                 <div className="login-footer">
                     Don't have an account?{" "}

@@ -105,3 +105,19 @@
         font-size: 1.7rem;
     }
 }
+
+.server-message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #f5f5f5;
+    color: #555;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.signup-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

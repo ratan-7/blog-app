@@ -7,6 +7,7 @@ const Signup = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -14,6 +15,8 @@ const Signup = () => {
         e.preventDefault();
 
         try {
+            setLoading(true);
+
             const response = await signUpUser({
                 name,
                 email,
@@ -27,6 +30,8 @@ const Signup = () => {
         } catch (err) {
             console.error(err);
             alert("Signup failed");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -72,10 +77,20 @@ const Signup = () => {
                     <button
                         type="submit"
                         className="signup-btn"
+                        disabled={loading}
                     >
-                        Create Account
+                        {loading
+                            ? "Creating Account..."
+                            : "Create Account"}
                     </button>
                 </form>
+
+                {loading && (
+                    <div className="server-message">
+                        🚀 Server is waking up. The first request
+                        may take up to 30 seconds. Please wait...
+                    </div>
+                )}
 
                 <div className="signup-footer">
                     Already have an account?{" "}
