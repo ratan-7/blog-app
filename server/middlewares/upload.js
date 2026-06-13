@@ -1,12 +1,15 @@
 const multer = require("multer");
+const cloudinary = require("../config/cloudinary");
+const {
+    CloudinaryStorage,
+} = require("multer-storage-cloudinary");
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, "uploads/");
+const storage = new CloudinaryStorage({
+    cloudinary,
+    params: {
+        folder: "vlogify",
+        allowed_formats: ["jpg", "jpeg", "png", "webp"],
     },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + "-" + file.originalname);
-    }
 });
 
 const upload = multer({ storage });

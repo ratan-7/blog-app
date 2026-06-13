@@ -38,19 +38,25 @@ const getPostById = async (req, res) => {
 
 //create post
 const createPost = async (req, res) => {
+    console.log("Controller Hit");
+
     try {
+
+        console.log("FILE =", req.file);
+
         const newPost = new Post({
             title: req.body.title,
             description: req.body.description,
             author: req.body.author,
             file: req.file
-                ? req.file.filename
+                ? req.file.path
                 : null
         });
 
         const savedPost = await newPost.save();
 
         res.status(200).json(savedPost);
+
     } catch (err) {
         res.status(500).json({
             message: err.message
